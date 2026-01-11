@@ -23,8 +23,7 @@ For this purpose I used Gemini 3.0 Flash as it turned out its ability to read in
 "Read this pdf and return it as a txt. The columns in the pdf and in the txt are:
 quarter, time, home action, score, diff, away action. 
 Include the quarter starters row with all 5 players for both teams at the beginning of each quarter, the upper row in the home action cell and the lower row in the away action cell. Include the flag "Starters: " in front of both entries and separate the starters using commas.
-
-return a txt file using pipe delimiters to use in pandas, without citations. Keep in mind that every player has a jersey number in front of him e.g. 99 SMITH J. Include all events, including substitutions."
+Return a txt file using pipe delimiters to use in pandas, without citations. Keep in mind that every player has a jersey number in front of him e.g. 99 SMITH J. Include all events, including substitutions."
 
 To show this exemplarily I added the pdfs of the first two games of the 25/26 season 2003986 and 2003987, as well as the output txts of the LLM in the data folder. When attempting this yourself you should initialize new sessions for each pdf to avoid hallucinations and data leakages which can be quite debilitating here.
 
@@ -38,6 +37,7 @@ Occasionally there are even errors in the BBL data itself, most commonly wrong n
 ## ⚠️ Remaining issues
 One source of error still remaining is occasionally, when there only is an event of the away team, it gets falsely assigned to the home team(supposed to be quarter|time||||Away event, but transcribed as quarter|time|away event|||). 
 This occurs rarely, so when running investigations over a whole season, I chose to disregard this. However, sometimes, it lands on a substitution, leading to players playing for a wrong team. This usually is the case for 2 in-game minutes which is why I did not manually check and remove all instances. Just thought you should be warned.
+
 
 
 
